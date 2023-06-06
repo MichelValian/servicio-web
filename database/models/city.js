@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    stateId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'City',

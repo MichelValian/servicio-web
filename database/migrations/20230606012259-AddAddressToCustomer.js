@@ -5,20 +5,20 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return Promise.all([
       queryInterface.addColumn(
-        'Addresses',
-        'localityId',
+        'Customers',
+        'addressId',
         {
           type:Sequelize.DataTypes.INTEGER,   
           //establecer la relacion a la tabla y llave primaria       
           references: {
-            model: 'Localities',
+            model: 'Addresses',
             key: 'id'
           },
         //integridad referenciar
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
           defaultValue: null,
-          after: 'suiteNumber'
+          after: 'rfc'
         },       
       ),
     ]);
@@ -26,7 +26,7 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     return Promise.all([
-      queryInterface.removeColumn('Addresses', 'localityId')
+      queryInterface.removeColumn('Customers', 'addressId')
     ]);
   }
 };

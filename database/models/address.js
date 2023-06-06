@@ -65,6 +65,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    localityId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Address',
